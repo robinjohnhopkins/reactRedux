@@ -117,3 +117,60 @@ Styles home page with a nice look and feel.
 ### Routing
 
 App uses Switch and Route for client side routing.
+
+### Redux
+
+Redux is an alternate to the less complex 'React context'.
+It provides state in one place - a client side store.
+
+### React context
+
+'React context' is not used in this app but allows you to declare high up in the App structure, a UserContextProvider (say), which holds data and functions. Then, lower down in the app tree of components, declare a UserContext.Consumer whcih uses the data and functions.
+This avoids the lifting up of state and passing down through props issue.
+
+### Object copying
+
+Spread operator and Object.Assign shallow copy objects.
+
+### 4 ways to Handle mapDispatchToProps
+
+#### ignore it
+
+```
+this.props.dispatch(loadCourses());
+```
+
+#### manually wrap in dispatch
+
+```
+function mapDispatchToProps(dispatch) {
+  return {
+    loadCourses: () => dispatch(loadCourses())
+  };
+}
+```
+
+#### use bindActionCreators
+
+```
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+```
+
+#### return object (best?)
+
+```
+const mapDispatchToProps = {
+  incrementCounter
+}
+```
+
+### Redux Flow
+
+Action
+Store
+Reducer
+Container Component
