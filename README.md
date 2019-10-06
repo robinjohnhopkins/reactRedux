@@ -99,3 +99,21 @@ in package.json, webpack has been added like this:
     "start": "webpack-dev-server --config webpack.config.dev.js --port 3000"
   },
 ```
+
+### React 16.8
+
+React 16.8 allows you to write function components with Hooks.
+e.g. useState, useEffect, useContext, useReducer, useCallback, useMemo, useRef, useImperativeHandler, useLayoutEffect, useDebugValue, etc
+Theerafter componentDidError amd getSnapshotBeforeUpdate are the only things you can do in a class that you can't do in a function component.
+
+### Styling
+
+```
+<div className="jumbotron">
+```
+
+Styles home page with a nice look and feel.
+
+### Routing
+
+App uses Switch and Route for client side routing.
