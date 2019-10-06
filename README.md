@@ -68,3 +68,34 @@
 | webpack-bundle-analyzer         | Generate report of what's in the app's production bundle         |
 | webpack-cli                     | Run Webpack via the command line                                 |
 | webpack-dev-server              | Serve app via Webpack                                            |
+
+### Prettier
+
+Removed beautify, installed prettier. Made vscode call prettier on save.
+preferences - Settings - formatOnSave tick
+
+### debugger can be added anywher in code
+
+debugger;
+
+### ESLint
+
+ESLint extension is added to see lint errors in vscode.
+Also, in webpack.config.dev.js:
+
+```
+use: ["babel-loader", "eslint-loader"]
+```
+
+means run eslint-loader before babel-loader, and this will show linting issues.
+e.g. undefined variables.
+
+### webpack
+
+in package.json, webpack has been added like this:
+
+```
+ "scripts": {
+    "start": "webpack-dev-server --config webpack.config.dev.js --port 3000"
+  },
+```
