@@ -25,18 +25,18 @@ module.exports = {
     https: false
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "src/index.html",
-      favicon: "src/favicon.ico"
-    })
+    new webpack.DefinePlugin({
+      "process.env.API_URL": JSON.stringify("http://localhost:3001")
+    }),
+    new HtmlWebpackPlugin({template: "src/index.html", favicon: "src/favicon.ico"})
   ],
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ["babel-loader", "eslint-loader"]
-      },
-      {
+      }, {
         test: /(\.css)$/,
         use: ["style-loader", "css-loader"]
       }

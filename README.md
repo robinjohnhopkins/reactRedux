@@ -174,3 +174,65 @@ Action
 Store
 Reducer
 Container Component
+
+### Mock Api
+
+```
+  "scripts": {
+    "start": "run-p start:dev start:api",
+    "start:dev": "webpack-dev-server --config webpack.config.dev.js --port 3000",
+    "prestart:api": "node tools/createMockDb.js",
+    "start:api": "node tools/apiServer.js"
+  },
+```
+
+runs a mock server on
+
+http://localhost:3001/
+
+serving up json which is recreated each run at
+
+http://localhost:3001/courses
+
+http://localhost:3001/authors
+
+### setup process.env.API_URL replacement
+
+webpack.config.dev.js
+
+```
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.API_URL": JSON.stringify("http://localhost:3001")
+    }),
+```
+
+### Redux Middleware
+
+Redux Middleware runs after action and before reducer
+
+### Redux Async Libraries
+
+#### redux-thunk
+
+return funcs from action creators
+
+#### redux-promise
+
+use promises for async
+
+#### redux-observable
+
+use RxJS observables
+
+#### redux-saga
+
+use generators
+
+### asyncThunk branch
+
+In the asyncThunk branch, we:
+
+- added a mock api
+- added thunk thunk async middleware
+- altered the course code to display the courses loaded from api
