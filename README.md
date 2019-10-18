@@ -236,3 +236,31 @@ In the asyncThunk branch, we:
 - added a mock api
 - added thunk thunk async middleware
 - altered the course code to display the courses loaded from api
+
+### Async Writes in Redux
+
+Add ManageCoursePage which is a function rather than a class.
+It uses useEffect, which takes two params. The function to run code and an array of props that cause the code to run.
+
+```
+  useEffect(() => {
+    // things to do when the second param items change
+  }, [props.course]);
+```
+
+It also uses an object style declaration with mapDispatchToProps.
+see '4 ways to Handle mapDispatchToProps' above.
+
+It uses a computed property sytax:
+
+```
+  function handleChange(event) {
+    const {name, value} = event.target;
+    setCourse(prevCourse => ({
+      ...prevCourse,
+      [name]: name === "authorId"
+        ? parseInt(value, 10)
+        : value
+    }));
+  }
+```
