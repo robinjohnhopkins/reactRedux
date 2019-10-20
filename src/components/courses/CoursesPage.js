@@ -7,6 +7,8 @@ import {bindActionCreators} from "redux";
 import CourseList from "./CourseList";
 import {Redirect} from "react-router-dom";
 import Spinner from '../common/Spinner';
+import { toast } from "react-toastify";
+
 
 class CoursesPage extends React.Component {
   state = {
@@ -33,6 +35,19 @@ class CoursesPage extends React.Component {
     }
   }
   
+  handleDeleteCourse = async course => {
+    toast.success("Course deleted");
+    try {
+      await this.props.actions.deleteCourse(course).catch(error => {
+        // optimistic delete has errored - agh
+        // red toast message that does not auto close
+        toast.error("Delete failed. " + error.message, { autoClose: false});
+      });
+    } catch (error) {
+      toast.error("Delete failed. " + error.message, { autoClose: false });
+    }
+  };
+
   // here <> is a fragment which is preferable to a div as 
   // it prevents creating a needless element in the DOM
   render() {
@@ -51,9 +66,8 @@ class CoursesPage extends React.Component {
               onClick={() => this.setState({redirectToAddCoursePage: true})}>
               Add Course
           </button> 
-          <CourseList courses = {
-            this.props.courses
-          } /> 
+          <CourseList courses = { this.props.courses} 
+                onDeleteClick = {this.handleDeleteCourse} /> 
           </>
         )
       }</>
@@ -88,7 +102,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
-      loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch)
+      loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
+      deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch)
     }
   };
 }
