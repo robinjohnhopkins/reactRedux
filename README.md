@@ -264,3 +264,24 @@ It uses a computed property sytax:
     }));
   }
 ```
+
+## Spinner and In Progress Async Mechanism
+
+Altered these files 
+
+```
+	new file:   src/components/common/Spinner.css
+	new file:   src/components/common/Spinner.js
+	modified:   src/components/courses/CoursesPage.js
+	modified:   src/redux/actions/actionTypes.js
+	new file:   src/redux/actions/apiStatusActions.js
+	modified:   src/redux/actions/authorActions.js
+	modified:   src/redux/actions/courseActions.js
+	new file:   src/redux/reducers/apiStatusReducer.js
+	modified:   src/redux/reducers/index.js
+	modified:   src/redux/reducers/initialState.js
+	modified:   tools/apiServer.js
+```
+
+to provide el neato spinner to show async operation is in progress
+with status update mechanism.
