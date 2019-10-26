@@ -285,3 +285,36 @@ Altered these files
 
 to provide el neato spinner to show async operation is in progress
 with status update mechanism.
+
+
+## Jest 
+
+snapshot-tools extension to see snapshot when hovering over toMatchSnapshot function.
+
+package.json
+
+```
+    "test":"jest --watch"
+  },
+  "jest": {
+    "setupFiles": [
+      "./tools/testSetup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/tools/styleMock.js"
+    }
+  },
+```
+
+```
+src/index.test.js
+src/components/courses/CourseForm.Snapshots.test.js
+tools/fileMock.js
+tools/styleMock.js
+tools/testSetup.js
+```
+
+```npm t```
+
+To run tests. Snapshots are written and an error is shown on changed output.
