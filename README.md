@@ -318,3 +318,15 @@ tools/testSetup.js
 ```npm t```
 
 To run tests. Snapshots are written and an error is shown on changed output.
+
+## Enzyme test
+
+src/components/courses/CourseForm.Enzyme.test.js
+
+uses shallow - no DOM created;no child components created
+
+
+src/components/common/Header.test.js
+
+uses mount - DOM created in memory with JSDOM; child components rendered
+
