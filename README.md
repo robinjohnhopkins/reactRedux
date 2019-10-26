@@ -330,3 +330,8 @@ src/components/common/Header.test.js
 
 uses mount - DOM created in memory with JSDOM; child components rendered
 
+
+## ReactTestingLibrary
+
+src/components/courses/CourseForm.ReactTestingLibrary.test.js
+
