@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
 
-const Header = () => {
+const Header = ({courses}) => {
   const activeStyle = { color: "#F15B2A" };
+
   return (
     <nav>
       <NavLink to="/" activeStyle={activeStyle} exact>
@@ -16,8 +19,23 @@ const Header = () => {
       <NavLink to="/about" activeStyle={activeStyle}>
         About
       </NavLink>
+      {" | "}
+      <>Number Courses {courses.length}</>
     </nav>
   );
 };
+Header.propTypes = {
+  courses: PropTypes.array.isRequired
+};
+function mapStateToProps(state) {
+  const courses = state.courses.length > 0
+    ? state.courses
+    : [];
+  return {courses};
+}
 
-export default Header;
+const mapDispatchToProps = {
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
+

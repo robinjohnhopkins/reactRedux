@@ -36,6 +36,10 @@ class CoursesPage extends React.Component {
   }
   
   handleDeleteCourse = async course => {
+    if (this.props.courses && this.props.courses.length <=1){
+      toast.error("There must always be at least one course!");
+      return;
+    }
     toast.success("Course deleted");
     try {
       await this.props.actions.deleteCourse(course).catch(error => {
