@@ -365,3 +365,35 @@ src/redux/store.test.js
 
 creates a store, calls an action, and checks returned store state.
 boom.
+
+
+## Production Build
+
+scripts in package.json
+
+```
+    "test:ci": "jest",
+    "clean:build": "rimraf ./build && mkdir build",
+    "prebuild": "run-p clean:build test:ci",
+    "build": "webpack --config webpack.config.prod.js",
+    "postbuild": "run-p start:api serve:build",
+    "serve:build": "http-server ./build"
+```
+
+src/redux/configureStore.js
+src/redux/configureStore.dev.js
+src/redux/configureStore.prod.js
+webpack.config.prod.js
+
+run
+
+```
+npm run build
+```
+
+It will run tests, webpack, serve on the following
+
+```
+http://localhost:8080/
+```
+
