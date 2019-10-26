@@ -335,3 +335,33 @@ uses mount - DOM created in memory with JSDOM; child components rendered
 
 src/components/courses/CourseForm.ReactTestingLibrary.test.js
 
+
+## Testing Redux
+
+src/components/App.js
+
+import ManageCoursePage from "./courses/ManageCoursePage"; // eslint-disable-line import/no-named-as-default
+
+to get rid of warning
+
+src/components/courses/ManageCoursePage.test.js
+
+tests without redux
+
+src/redux/actions/courseActions.test.js
+
+tests thunks - can reuse pattern
+but Cory doesn't think this is particularly useful.
+
+### testing reducers
+
+given this input, I expect this output
+
+src/redux/reducers/courseReducer.test.js
+
+### testing the store
+
+src/redux/store.test.js
+
+creates a store, calls an action, and checks returned store state.
+boom.
