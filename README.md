@@ -397,3 +397,7 @@ It will run tests, webpack, serve on the following
 http://localhost:8080/
 ```
 
+note this is a convenience and serves it static
+in reality you will want to serve the build directory built by webpack
+via, say, express and have unknown routes redirect to index.html.
+
