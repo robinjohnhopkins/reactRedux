@@ -20,6 +20,14 @@ const Header = ({courses}) => {
         About
       </NavLink>
       {" | "}
+      <NavLink to="/todo" activeStyle={activeStyle}>
+        Todo
+      </NavLink>
+      {" | "}
+      <NavLink to="/slides" activeStyle={activeStyle}>
+        Slides
+      </NavLink>
+      {" | "}
       <>Number Courses {courses.length}</>
     </nav>
   );

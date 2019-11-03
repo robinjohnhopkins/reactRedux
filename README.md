@@ -401,3 +401,25 @@ note this is a convenience and serves it static
 in reality you will want to serve the build directory built by webpack
 via, say, express and have unknown routes redirect to index.html.
 
+## animation
+
+npm install react-transition-group@1.x --save
+
+npm install radium --save
+npm install react-animations --save
+
+src/components/TodoList/TodoList.js
+CSSTransitionGroup
+is great for animations like fade in/out for items in list
+but didn't seem that great for a carousel
+(Hence separate carousel page example)
+
+
+## carousel
+
+npm install reactstrap
+
+https://reactstrap.github.io/components/carousel/
+
+src/components/MyCarousel/MyCarousel.js
+
