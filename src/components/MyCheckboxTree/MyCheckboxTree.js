@@ -1,7 +1,11 @@
 import React from 'react';
 import CheckboxTree from 'react-checkbox-tree';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as fa from '@fortawesome/free-solid-svg-icons';
+import * as fa from '@fortawesome/free-regular-svg-icons';
+import * as fas from '@fortawesome/free-solid-svg-icons';
+
+import { faCheckSquare as fasCheckSquare} from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare as farCheckSquare } from '@fortawesome/free-regular-svg-icons'
 
 const nodes = [{
     value: 'mars',
@@ -38,12 +42,12 @@ export default class MyCheckboxTree extends React.Component {
                     check: <FontAwesomeIcon icon={fa.faCheckSquare} />,
                     uncheck: <FontAwesomeIcon icon={fa.faSquare} />,
                     halfCheck: <FontAwesomeIcon icon={fa.faMinusSquare} />,
-                    expandClose: <FontAwesomeIcon icon={fa.faChevronRight} />,
-                    expandOpen: <FontAwesomeIcon icon={fa.faChevronDown} />,
+                    expandClose: <FontAwesomeIcon icon={fas.faChevronRight} />,
+                    expandOpen: <FontAwesomeIcon icon={fas.faChevronDown} />,
                     expandAll: <FontAwesomeIcon icon={fa.faPlusSquare} />,
                     collapseAll: <FontAwesomeIcon icon={fa.faMinusSquare} />,
                     parentClose: <FontAwesomeIcon icon={fa.faFolder} />,
-                    parentOpen: <FontAwesomeIcon icon={fa.faFolderPlus} />,
+                    parentOpen: <FontAwesomeIcon icon={fas.faFolderPlus} />,
                     leaf: <FontAwesomeIcon icon={fa.faFile} />
                 }}
             />
@@ -54,14 +58,17 @@ export default class MyCheckboxTree extends React.Component {
             <span>
             <FontAwesomeIcon icon={fa.faCheckSquare} />
             <FontAwesomeIcon icon={fa.faSquare} />
-            <FontAwesomeIcon icon={fa.faVectorSquare} />
+            <FontAwesomeIcon icon={fas.faVectorSquare} />
             <FontAwesomeIcon icon={fa.faMinusSquare} />
-            <FontAwesomeIcon icon={fa.faChevronRight} />
-            <FontAwesomeIcon icon={fa.faChevronDown} />
+            <FontAwesomeIcon icon={fas.faChevronRight} />
+            <FontAwesomeIcon icon={fas.faChevronDown} />
             <FontAwesomeIcon icon={fa.faFolder} />
-            <FontAwesomeIcon icon={fa.faFolderMinus} />
-            <FontAwesomeIcon icon={fa.faFolderPlus} />
+            <FontAwesomeIcon icon={fas.faFolderMinus} />
+            <FontAwesomeIcon icon={fas.faFolderPlus} />
             <FontAwesomeIcon icon={fa.faFile} />
+            <FontAwesomeIcon icon={['fas', 'check-box']} />
+            <FontAwesomeIcon icon={['far', 'check-box']} />
+
             </span>
             </>
         );
