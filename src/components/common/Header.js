@@ -22,10 +22,14 @@ const Header = ({courses}) => {
       {" | "}
       <NavLink to="/todo" activeStyle={activeStyle}>
         Todo
-      </NavLink>
+        </NavLink>
       {" | "}
       <NavLink to="/slides" activeStyle={activeStyle}>
         Slides
+      </NavLink>
+      {" | "}
+      <NavLink to="/checkboxtree" activeStyle={activeStyle}>
+        CheckboxTree
       </NavLink>
       {" | "}
       <>Number Courses {courses.length}</>

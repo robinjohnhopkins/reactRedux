@@ -10,6 +10,8 @@ import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import TodoList from './TodoList/TodoList';
 import MyCarousel from './MyCarousel/MyCarousel';
+import MyCheckboxTree from './MyCheckboxTree/MyCheckboxTree';
+
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/course" component={ManageCoursePage}/>
         <Route path="/todo" component={TodoList}/>
         <Route path="/slides" component={MyCarousel}/>
+        <Route path="/checkboxtree" component={MyCheckboxTree}/>
+        
         <Route component={PageNotFound}/>
       </Switch>
       <ToastContainer autoClose={3000} hideProgressBar />
