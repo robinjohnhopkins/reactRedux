@@ -84,6 +84,7 @@ const MyCarousel = (props) => {
 
   return (
     <Carousel
+      ride='carousel'
       activeIndex={activeIndex}
       next={next}
       previous={previous}
