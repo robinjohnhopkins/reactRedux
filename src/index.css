@@ -34,3 +34,38 @@ nav {
   transition: opacity .5s ease-in;
 }
 
+.react-contextmenu--visible{
+  margin: 0;
+  display: block;
+  background-color : #fff;
+  white-space: nowrap;
+  width: auto;
+  min-width: 100px !important;
+}
+
+.react-contextmenu-item {
+  color: rgb(67, 63, 63);
+  background-color : #fff;
+}
+.react-contextmenu {
+  background-color: rgb(250, 250, 250);
+  box-shadow: 4px 4px 3px -2px #888888;
+  padding: 3px 0 3px 0;
+  border: 1px solid #b1b1b1;
+  border-radius: 1px;
+  font-family: "CtxMenuFont";
+  font-size: 16px;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  z-index: 999;
+}
+
+.react-contextmenu-item--selected {
+  color: rgb(30, 11, 97);
+  background-color : rgb(164, 158, 158);
+}
+

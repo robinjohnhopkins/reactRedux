@@ -423,3 +423,6 @@ https://reactstrap.github.io/components/carousel/
 
 src/components/MyCarousel/MyCarousel.js
 
+## react-contextmenu
+
+First I added react-contextmenu but then had to input source and rejig for context menu to add and delete tree elements.
