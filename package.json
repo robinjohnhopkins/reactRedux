@@ -41,6 +41,7 @@
     "react-dom": "16.8.4",
     "react-redux": "6.0.1",
     "react-router-dom": "5.0.0",
+    "react-sizeme": "^2.6.10",
     "react-toastify": "4.5.2",
     "react-transition-group": "^1.2.1",
     "reactstrap": "^8.1.1",
@@ -90,10 +91,13 @@
     "presets": [
       "babel-preset-react-app"
     ],
-    "plugins":   [
-   
-
-      ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ],
       "@babel/plugin-proposal-json-strings"
     ]
   },

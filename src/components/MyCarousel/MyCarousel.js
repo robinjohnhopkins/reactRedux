@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Carousel,
   CarouselItem,
@@ -6,6 +6,8 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
+import sizeMe from 'react-sizeme';
+import PropTypes from "prop-types";
 
 // oldsrc url decoded is:
 //
@@ -49,8 +51,23 @@ const items = [
 
 
 const MyCarousel = (props) => {
+
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+
+  // useEffect(() => {
+  //   const canvas = this.refs.canvas
+  //   const ctx = canvas.getContext("2d")
+  //   const img = this.refs.image
+
+  //   img.onload = () => {
+  //     ctx.drawImage(img, 0, 0)
+  //     ctx.font = "40px Courier"
+  //     ctx.fillText(this.props.text, 210, 75)
+  //   }
+
+  // },[]);
 
   const next = () => {
     if (animating) return;
@@ -82,7 +99,17 @@ const MyCarousel = (props) => {
     );
   });
 
+  const { width, height } = props.size;
+  console.log('size', width, height);
+
+  // var width='100%';
+  // var height='100%';
+  var color1='#1229b0';
+  var color2='#c03c3c';
+  var color3='#1a7e4c';
+ 
   return (
+    <>
     <Carousel
       ride='carousel'
       activeIndex={activeIndex}
@@ -94,7 +121,37 @@ const MyCarousel = (props) => {
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
+
+    <div>
+      <svg width={width} height={height} className='chart'>
+      <filter id="blurMe">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+      </filter>
+      <defs>
+        <linearGradient id="MyGradient">
+          <stop offset="5%" stopColor="#A8F" />
+          <stop offset="95%" stopColor="#FDC" />
+        </linearGradient>
+      </defs>
+      {/* <!-- The rectangle is filled using a linear-gradient paint server --> */}
+      <rect fill="url(#MyGradient)"
+        stroke="black"
+        strokeWidth="2"
+        x="0" y="0" width={width} height={height}/>
+
+        <circle cx={30} cy={80} r={25} fill={color1} filter="url(#blurMe)" />
+        <circle cx={130} cy={80} r={60} fill={color2} filter="url(#blurMe)" />
+        <circle cx={260} cy={80} r={40} fill={color3} filter="url(#blurMe)" />
+      </svg>
+    </div>
+    </>
   );
 }
+MyCarousel.propTypes = {
+  size:{
+    width: PropTypes.number,
+    height: PropTypes.number
+  }
+};
 
-export default MyCarousel;
+export default sizeMe({ monitorHeight: true })(MyCarousel);
