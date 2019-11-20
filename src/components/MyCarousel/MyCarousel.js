@@ -130,13 +130,13 @@ const MyCarousel = (props) => {
       <defs>
         <linearGradient id="MyGradient">
           <stop offset="5%" stopColor="#A8F" />
-          <stop offset="95%" stopColor="#FDC" />
+          <stop offset="95%" stopColor="#eeebeb" />
         </linearGradient>
       </defs>
       {/* <!-- The rectangle is filled using a linear-gradient paint server --> */}
       <rect fill="url(#MyGradient)"
         stroke="black"
-        strokeWidth="2"
+        strokeWidth="0"
         x="0" y="0" width={width} height={height}/>
 
         <circle cx={30} cy={80} r={25} fill={color1} filter="url(#blurMe)" />
