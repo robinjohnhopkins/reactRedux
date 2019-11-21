@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import TodoList from './TodoList/TodoList';
 import MyCarousel from './MyCarousel/MyCarousel';
 import MyCheckboxTree from './MyCheckboxTree/MyCheckboxTree';
+import MyKonvaCanvas from './MyKonvaCanvas/MyKonvaCanvas';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/todo" component={TodoList}/>
         <Route path="/slides" component={MyCarousel}/>
         <Route path="/checkboxtree" component={MyCheckboxTree}/>
+        <Route path="/konva" component={MyKonvaCanvas}/>
         
         <Route component={PageNotFound}/>
       </Switch>

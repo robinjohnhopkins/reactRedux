@@ -32,6 +32,10 @@ const Header = ({courses}) => {
         CheckboxTree
       </NavLink>
       {" | "}
+      <NavLink to="/konva" activeStyle={activeStyle}>
+        Konva
+      </NavLink>  
+      {" | "}
       <>Number Courses {courses.length}</>
     </nav>
   );
