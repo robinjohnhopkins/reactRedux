@@ -12,6 +12,7 @@ import TodoList from './TodoList/TodoList';
 import MyCarousel from './MyCarousel/MyCarousel';
 import MyCheckboxTree from './MyCheckboxTree/MyCheckboxTree';
 import MyKonvaCanvas from './MyKonvaCanvas/MyKonvaCanvas';
+import D3Page from './MyViz/D3Page';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/slides" component={MyCarousel}/>
         <Route path="/checkboxtree" component={MyCheckboxTree}/>
         <Route path="/konva" component={MyKonvaCanvas}/>
+        <Route path="/d3" component={D3Page}/>
         
         <Route component={PageNotFound}/>
       </Switch>

@@ -36,6 +36,10 @@ const Header = ({courses}) => {
         Konva
       </NavLink>  
       {" | "}
+      <NavLink to="/d3" activeStyle={activeStyle}>
+        D3
+      </NavLink>  
+      {" | "}
       <>Number Courses {courses.length}</>
     </nav>
   );
