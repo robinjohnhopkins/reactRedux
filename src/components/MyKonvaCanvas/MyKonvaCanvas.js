@@ -7,8 +7,7 @@ import ColoredRect from './ColoredRect';
 
 //import { useStrictMode } from 'react-konva';
 //useStrictMode(true);
-//points
-var width, height, largeHeader, canvas, ctx, target, animateHeader = true;
+var width, height, offsetWidth, largeHeader, canvas, ctx, target, animateHeader = true;
 
 class MyColoredRect extends React.Component {
     state = {
@@ -30,14 +29,18 @@ class MyColoredRect extends React.Component {
         //this.addListeners();
         this.mouseMove=this.mouseMove.bind(this);
 
-                console.log('init', width, 'canvas', canvas);
-                if (window.points == undefined || window.points.length <= 0){
-                    this.initHeader();
-                    this.initAnimation();
-                    this.addListeners();
-                    //this.setState({num : this.state.num +1});
-                }
-
+        console.log('init', width, 'canvas', canvas);
+        if (window.points == undefined || window.points.length <= 0){
+            this.initHeader();
+            this.initAnimation();
+            this.addListeners();
+            //this.setState({num : this.state.num +1});
+        }
+    }
+    componentDidMount() {
+        if (window.points == undefined || window.points.length <= 0){
+            this.addListeners();
+        }
     }
     handleClick = () => {
       this.setState({
@@ -147,6 +150,11 @@ class MyColoredRect extends React.Component {
     initHeader() {
         width = window.innerWidth;
         height = window.innerHeight;
+        var app = document.getElementById('app');
+        offsetWidth = (width - app.clientWidth)/2;
+        if (offsetWidth < 0){
+            offsetWidth = 0;
+        }
         target = {x: width/2, y: height/2};
 
         largeHeader = document.getElementById('large-header');
@@ -231,7 +239,8 @@ class MyColoredRect extends React.Component {
             posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
             posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
         }
-        target.x = posx;
+        var x = posx - offsetWidth;
+        if (x > 0) target.x = x;
         target.y = posy;
         this.animate();
         //console.log(target);
@@ -247,8 +256,8 @@ class MyColoredRect extends React.Component {
         width = window.innerWidth;
         height = window.innerHeight;
         //largeHeader.style.height = height+'px';
-        canvas.width = width;
-        canvas.height = height;
+        //canvas.width = width;
+        //canvas.height = height;
     }
 
     // animation

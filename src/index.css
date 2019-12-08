@@ -1,7 +1,11 @@
+/*
+This is how to max width with a margin to fit
+looks good except when doing the SPACE d3 page!
 #app {
   max-width: 850px;
   margin: 0 auto;
 }
+*/
 
 nav {
   padding: 20px 0 20px 0;
@@ -103,8 +107,16 @@ nav {
   font-weight: 200;
 }
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px)*/
+@media only screen and (max-width: 3768px) {
   .demo .main-title {
      font-size: 3em;
   }
 }
+
+.lines {
+  stroke: #000;
+  stroke-opacity: .3;
+  stroke-width: .5;
+}
+

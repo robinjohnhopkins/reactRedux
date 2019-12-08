@@ -45,13 +45,13 @@ export default class ColoredRect extends React.Component {
         to={{
             x: flag ? pt.toX : pt.originX,
             y: flag ? pt.toY : pt.originY,
-          width: flag ? 20 : 20,
-          height: flag ? 20 : 20
+          width: flag ? 5 : 5,
+          height: flag ? 5 : 5
         }}
         onRest={me.handleClick}
       >
         {props => (
-          <animated.Circle {...props} radius={1} onClick={this.handleClick} />
+          <animated.Circle {...props} radius={.5} onClick={this.handleClick} />
         )}
       </Spring>
     );

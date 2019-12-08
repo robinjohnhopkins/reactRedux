@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import VizBubbles from './VizBubbles';
+import Viz from './Viz';
 import { sampleEdgesData, sampleNodesData } from "./VisComplexData";
 
 export default class D3Page extends Component {
@@ -8,6 +9,11 @@ export default class D3Page extends Component {
     exponent: 1,
     selectednode:[],
     screenWidth:  800,
+    color: "red", 
+    width: "10",
+    redrawCount: 0, 
+    toDraw: [{color:'blue', width: '10', x:130, y:130}], 
+    linesDraw: [{x1:30, y1:30,x2:130, y2:130},{x1:150, y1:150,x2:230, y2:230},], 
   }
   constructor(){
     super();
@@ -15,7 +21,7 @@ export default class D3Page extends Component {
     this.doUpdate = this.doUpdate.bind(this);
     this.updateDimensions = this.updateDimensions.bind(this);
     this.mapNodeToVisNode = this.mapNodeToVisNode.bind(this);
-    this.doUpdate(sampleNodesData, sampleEdgesData);
+    
     // axios.get('http://localhost:8080/edges')
     // .then(edgesResponse => {
     //   // console.log('edges', edgesResponse);
@@ -42,6 +48,7 @@ export default class D3Page extends Component {
    * Add event listener - we want a redraw on browser window redraw!
    */
   componentDidMount() {
+    this.doUpdate(sampleNodesData, sampleEdgesData);
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions);
   }
@@ -120,14 +127,22 @@ export default class D3Page extends Component {
     console.log('componentDidCatch', error, info);
   }
   render() {
+    var me = this;
     return (
       <div
         className="D3Page"
         title="D3s"
         breadcrumbs={[{ name: 'D3s', active: true }]}
       >
-      <div className="controller" id="d3page" >
-        <VizBubbles data={this.state.data} screenWidth={this.state.screenWidth} />    
+      <div className="controller rocky" id="d3page" >
+      <h1 className="main-title"><span className="thin">Explore</span> Space</h1>
+        {/* <VizBubbles data={this.state.data} screenWidth={this.state.screenWidth} />     */}
+        <Viz bubbles={this.state.toDraw}
+            linesDraw={this.state.linesDraw} redrawCount={me.state.redrawCount} 
+            incRedrawCount= {() => {
+                var count = me.state.redrawCount+1;
+                console.log('count', count);
+                me.setState({redrawCount:count})}} />
       </div>
       </div>
     );
